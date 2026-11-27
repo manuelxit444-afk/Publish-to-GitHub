@@ -1,0 +1,14 @@
+NEXOTECH — VERSÃO 0.1
+
+1. Extraia o ZIP em uma pasta.
+2. No VS Code, abra a pasta nexotech-v1 (Arquivo > Abrir Pasta).
+3. Abra index.html no navegador ou use a extensão Live Server.
+
+index.html: estrutura das telas.
+style.css: cores, tamanhos, layout e responsividade.
+script.js: produtos de exemplo, busca, filtros e carrinho.
+
+Não precisa instalar Node.js nem banco de dados nesta etapa.
+As ilustrações estão embutidas no código e não são fotos reais.
+Preços e serviços são exemplos. Não há pagamento, pedidos ou estoque real.
+O carrinho funciona em memória e é reiniciado ao atualizar a página.
