@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111318">
+  <title>NexoTech | Conecte-se ao futuro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="dados.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Símbolos vetoriais reutilizáveis, sem dependências externas. -->
+  <svg class="biblioteca-icones" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icone-carrinho" viewBox="0 0 24 24"><path d="M2 3h3l2.5 12h12l2-8H6M9 21h.01M19 21h.01"/><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/></symbol>
+    <symbol id="icone-busca" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="icone-seta" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icone-entrega" viewBox="0 0 24 24"><path d="M3 5h12v12H3zM15 9h4l3 4v4h-7"/><circle cx="7" cy="18" r="2" fill="white"/><circle cx="18" cy="18" r="2" fill="white"/></symbol>
+    <symbol id="icone-escudo" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-4 8-8 10-4-2-8-5-8-10V6zM8.5 12l2.5 2.5 5-5"/></symbol>
+    <symbol id="icone-chat" viewBox="0 0 24 24"><path d="M21 11.5a9 9 0 0 1-9 9 10 10 0 0 1-4-.9L3 21l1.5-5A9 9 0 1 1 21 11.5Z"/></symbol>
+    <symbol id="icone-fechar" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icone-logo" viewBox="0 0 40 32"><path fill="currentColor" stroke="none" d="M1 6h8v20H1zM13 6h9l17 20h-9zM31 6h8v14z"/></symbol>
+  </svg>
+  <header class="topo">
+    <div class="container">
+      <div id="modo" class="modo" hidden></div>
+      <div class="linha-topo">
+        <a class="marca" href="index.html" aria-label="NexoTech, início"><svg class="logo-icone" aria-hidden="true"><use href="#icone-logo"/></svg><span class="marca-texto">NEXO<span>TECH</span></span></a>
+        <div class="busca"><svg class="icone" aria-hidden="true"><use href="#icone-busca"/></svg><input id="busca" type="search" placeholder="O que você está procurando?" aria-label="Buscar produtos"></div>
+        <div class="acoes-topo"><button id="conta" class="carrinho-topo" type="button">Minha conta</button><button id="favoritos" class="carrinho-topo" type="button" aria-label="Favoritos" aria-pressed="false">♡</button><button id="abrir-carrinho" class="carrinho-topo" type="button" aria-label="Abrir carrinho"><svg class="icone" aria-hidden="true"><use href="#icone-carrinho"/></svg><span class="texto-carrinho">Carrinho</span><span id="quantidade">0</span></button></div>
+      </div>
+      <nav class="categorias" aria-label="Categorias">
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="banner">
+      <div class="container banner-conteudo">
+        <div class="banner-texto"><p class="chamada"><span></span> SEU PRÓXIMO NÍVEL</p><h1>Conecte-se<br>ao <em>futuro.</em></h1><p>Tecnologia de qualidade, perto de você.</p><a href="#produtos" class="botao-azul">Ver produtos <svg class="icone" aria-hidden="true"><use href="#icone-seta"/></svg></a></div>
+        <div class="arte-banner" aria-hidden="true">
+          <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="metal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#536980"/><stop offset=".35" stop-color="#172232"/><stop offset="1" stop-color="#070b13"/></linearGradient>
+              <linearGradient id="luz" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#87ceff"/><stop offset="1" stop-color="#1764ef"/></linearGradient>
+              <radialGradient id="copo"><stop stop-color="#243d59"/><stop offset="1" stop-color="#0a111f"/></radialGradient>
+              <pattern id="grade" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#5f9bff" stroke-opacity=".12"/></pattern>
+              <pattern id="teclas" width="19" height="19" patternUnits="userSpaceOnUse"><rect x="2" y="2" width="15" height="15" rx="3" fill="#121d2e" stroke="#4c78b9" stroke-width=".9"/></pattern>
+              <filter id="sombra"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity=".65"/></filter>
+            </defs>
+            <rect width="520" height="320" fill="url(#grade)" opacity=".7"/>
+            <circle cx="283" cy="146" r="117" fill="none" stroke="#4985db" stroke-opacity=".32"/><circle cx="283" cy="146" r="145" fill="none" stroke="#4985db" stroke-opacity=".15" stroke-dasharray="4 9"/>
+            <ellipse cx="272" cy="282" rx="207" ry="18" fill="#050a13" opacity=".6"/>
+            <g transform="translate(22 184) rotate(-12 145 55)" filter="url(#sombra)"><rect width="290" height="103" rx="12" fill="url(#metal)" stroke="#5477a7" stroke-width="2"/><rect x="10" y="10" width="270" height="76" rx="5" fill="url(#teclas)"/><rect x="98" y="71" width="95" height="14" rx="3" fill="#142437" stroke="#5789cf"/><path d="M12 97h266" stroke="#2583ff" stroke-width="2"/></g>
+            <g transform="translate(144 6)" filter="url(#sombra)"><path d="M43 150V107a98 98 0 0 1 196 0v43" fill="none" stroke="#6484a8" stroke-width="24" stroke-linecap="round"/><path d="M43 150V107a98 98 0 0 1 196 0v43" fill="none" stroke="url(#metal)" stroke-width="19" stroke-linecap="round"/><path d="M62 82a82 82 0 0 1 158 0" fill="none" stroke="#070e1b" stroke-width="12" stroke-linecap="round"/><rect x="22" y="131" width="56" height="98" rx="25" fill="url(#metal)" stroke="#5a779b" stroke-width="2"/><rect x="64" y="142" width="22" height="75" rx="10" fill="#101520"/><rect x="205" y="142" width="22" height="75" rx="10" fill="#101520"/><rect x="219" y="130" width="64" height="100" rx="27" fill="url(#copo)" stroke="#657e9c" stroke-width="2"/><ellipse cx="250" cy="180" rx="20" ry="29" fill="none" stroke="url(#luz)" stroke-width="3"/><path d="M242 229q0 38-52 38" fill="none" stroke="#6685a7" stroke-width="5" stroke-linecap="round"/><rect x="170" y="260" width="30" height="13" rx="6" fill="url(#luz)"/></g>
+            <g transform="translate(389 205) rotate(18 36 48)" filter="url(#sombra)"><path d="M36 0C9 0 0 20 0 49v10c0 27 13 40 36 40s36-13 36-40V49C72 20 63 0 36 0Z" fill="url(#metal)" stroke="#56749e" stroke-width="2"/><path d="M36 2v42M2 44h68" stroke="#526781"/><rect x="31" y="12" width="10" height="21" rx="5" fill="#3a9cff"/><path d="M5 66q8 30 31 29 24 1 31-29" fill="none" stroke="url(#luz)" stroke-width="3"/></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section class="beneficios" aria-label="Proposta da loja"><div class="container beneficios-lista">
+      <div><svg class="icone" aria-hidden="true"><use href="#icone-entrega"/></svg><span><strong>Entrega em Manaus</strong><small>Consulte condições de entrega</small></span></div>
+      <div><svg class="icone" aria-hidden="true"><use href="#icone-escudo"/></svg><span><strong>Pedido assistido</strong><small>Pagamento combinado com a loja</small></span></div>
+      <div><svg class="icone" aria-hidden="true"><use href="#icone-chat"/></svg><span><strong>Atendimento local</strong><small>Converse com nossa equipe</small></span></div>
+    </div></section>
+    <section class="container catalogo" id="produtos">
+      <div class="titulo-produtos"><div><p class="sobretitulo">EXPLORE A NEXOTECH</p><h2>Nossos produtos</h2></div><div class="filtros"><span id="total-produtos" aria-live="polite"></span><select id="ordenar" aria-label="Ordenar produtos"><option value="padrao">Destaques</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option><option value="nome">Nome A–Z</option></select></div></div>
+      <div id="lista-produtos" class="grade-produtos"></div>
+      <p id="sem-produtos" hidden>Nenhum produto encontrado. Tente outra pesquisa ou categoria.</p>
+    </section>
+  </main>
+  <footer class="rodape"><div class="container rodape-conteudo"><a class="marca marca-rodape" href="index.html" aria-label="NexoTech, início"><svg class="logo-icone" aria-hidden="true"><use href="#icone-logo"/></svg><span class="marca-texto">NEXO<span>TECH</span></span></a><p>NexoTech · V1.0 Beta<br>Pedidos sujeitos à confirmação da loja.</p><span class="rodape-local">Manaus · AM · <a href="admin.html">Área administrativa</a></span></div></footer>
+  <dialog id="modal-carrinho" aria-labelledby="titulo-carrinho">
+    <div class="cabecalho-modal"><h2 id="titulo-carrinho">Seu carrinho</h2><button id="fechar-carrinho" aria-label="Fechar carrinho"><svg class="icone" aria-hidden="true"><use href="#icone-fechar"/></svg></button></div>
+    <div id="itens-carrinho"></div>
+    <div class="subtotal"><strong>Subtotal</strong><strong id="subtotal">R$ 0,00</strong></div>
+    <p class="aviso">Frete e pagamento serão combinados com a loja. O estoque será confirmado antes da venda.</p>
+    <button class="botao-azul" id="checkout">Solicitar pedido</button>
+    <button class="botao-sec" id="continuar">Continuar comprando</button>
+  </dialog>
+  <dialog id="detalhe" aria-labelledby="titulo-detalhe"><div class="cabecalho-modal"><h2 id="titulo-detalhe">Produto</h2><button data-fechar="detalhe" aria-label="Fechar">×</button></div><div id="detalhe-corpo"></div></dialog>
+  <dialog id="modal-conta" aria-labelledby="titulo-conta"><div class="cabecalho-modal"><h2 id="titulo-conta">Minha conta</h2><button data-fechar="modal-conta" aria-label="Fechar">×</button></div><div id="conta-corpo"></div></dialog>
+  <dialog id="modal-pedido" aria-labelledby="titulo-pedido"><div class="cabecalho-modal"><h2 id="titulo-pedido">Solicitar pedido</h2><button data-fechar="modal-pedido" aria-label="Fechar">×</button></div><div id="pedido-corpo"></div></dialog>
+  <div id="mensagem" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+NEXOTECH — V1.0 BETA
+===================
+Loja e painel administrativo em HTML, CSS e JavaScript.
+
+1. TESTAR AGORA (SEM CONTA, SEM BANCO)
+------------------------------------
+- Extraia o ZIP. No VS Code, abra a pasta que contém index.html.
+- Clique com o botão direito em index.html > Open with Live Server.
+- Use sempre o mesmo endereço e porta do Live Server para a loja e o painel.
+- A loja abre em modo demonstração: produtos e preços fictícios.
+- No rodapé, clique em Área administrativa > Abrir painel de demonstração.
+- Cadastre uma categoria ou produto, preço, estoque e foto. Volte à loja.
+- Para testar um pedido, saia do administrador e entre como cliente de teste
+  em Entrar. Adicione produtos, abra o carrinho e clique Solicitar pedido.
+  Utilize apenas dados fictícios. Abra o painel de novo, troque para o
+  administrador de teste e confirme o pedido para descontar estoque.
+- O modo demo salva informações no localStorage deste navegador, não na nuvem.
+  Não use esse modo para vendas reais ou para guardar dados pessoais.
+  O armazenamento pode se esgotar com fotos; use imagens pequenas no demo.
+- Para reiniciar a demonstração, limpe os dados do site no navegador.
+
+2. ATUALIZAR O PROJETO GIT EXISTENTE
+-----------------------------------
+- Faça commit das alterações antigas se desejar preservá-las.
+- Copie o CONTEÚDO desta pasta para a pasta antiga onde fica index.html.
+  Não crie uma pasta dentro da outra. Aceite substituir arquivos existentes.
+- NÃO apague a pasta .git, nem reinicialize o repositório.
+- Teste o site. No VS Code, Ctrl+Shift+G, mensagem de commit:
+  NexoTech V1.0 Beta - Loja e painel administrativo
+- Faça Commit e Sync Changes (se o GitHub já estiver conectado).
+
+3. CONECTAR AO SUPABASE (QUANDO FOR ATIVAR DADOS REAIS)
+----------------------------------------------------
+A) Crie um projeto NOVO em https://supabase.com/dashboard.
+B) Abra SQL Editor > New query. Abra supabase.sql no VS Code, copie o
+   conteúdo inteiro para o SQL Editor e clique Run. Execute uma única vez.
+   O script cria tabelas, regras RLS, funções de pedidos e bucket de fotos.
+   Não execute em um banco de dados existente sem revisar.
+C) Na seção Connect ou Settings > API Keys, obtenha o Project URL e a
+   Publishable key (ou anon key legada). Abra config.js e preencha os dois.
+   NUNCA coloque service_role, secret key, senha de banco ou token privado
+   em arquivos do site ou no GitHub. A chave pública é própria para browser.
+D) Abra Authentication > URL Configuration. Configure Site URL e Redirect
+   URLs para o endereço real do site e o endereço local usado nos testes.
+   Mantenha confirmação de e-mail habilitada; configure SMTP para produção.
+E) Com config.js preenchido, abra a loja pelo Live Server, use Entrar > Criar
+   conta para criar sua conta administrativa. Confirme seu e-mail, se exigido.
+F) Em Authentication > Users no Supabase, copie o UUID da SUA conta.
+   No SQL Editor execute, substituindo apenas o texto pelo UUID copiado:
+   insert into public.admins(user_id) values ('SEU-UUID-AQUI');
+   Ninguém pode se tornar administrador apenas pelo formulário de cadastro.
+G) Abra admin.html (link Área administrativa no rodapé) e entre com sua conta.
+   O banco real começa sem produtos; cadastre os seus pelo painel.
+H) Em config.js, preencha whatsapp com DDI 55 + DDD + número, só dígitos.
+   O cliente registra o pedido e clica para abrir a conversa do WhatsApp
+   com os itens e o subtotal. Não há envio automático de mensagens.
+   Não existe integração de pagamento nem cobrança no site nesta beta.
+
+4. COMO FUNCIONAM ESTOQUE E PEDIDOS
+----------------------------------
+- Solicitação pendente não reserva mercadoria. Preço vem do banco em modo real.
+- Combine entrega, frete e pagamento com o cliente antes de confirmar.
+- Confirmar um pedido desconta estoque; se faltar estoque, não confirma.
+- Cancelar um pedido confirmado repõe estoque. Concluir é uma decisão manual.
+- Painel mostra subtotais de pedidos concluídos (não são pagamentos verificados).
+- Produtos podem ser ocultados, preservando o histórico. Categorias podem ser
+  criadas e renomeadas. Fotos podem ser substituídas; arquivos antigos ficam
+  no bucket e devem ser limpos manualmente após conferir referências.
+- Carrinho e favoritos são locais ao navegador mesmo no modo Supabase.
+
+5. ANTES DE LANÇAR
+------------------
+- Esta é uma beta funcional local, não uma loja certificada para produção.
+- Testes do modo demo feitos no Chromium com arquivos carregados diretamente
+  e armazenamento simulado por bloqueio de navegação local do ambiente.
+- Supabase real, SQL, autenticação, storage e WhatsApp real ainda precisam de
+  testes de integração com suas contas. Não publique sem validar as permissões:
+  cliente não pode alterar produtos/estoque, nem ver pedidos de outros; admin
+  pode editar produtos e confirmar pedidos; visitante não vê pedidos nem dados.
+- Valide concorrência de pedidos, recuperação de senha e conta, proteção contra
+  abuso, backups, logs, configuração de e-mail, HTTPS e domínio.
+- Defina políticas de privacidade, troca/devolução, frete, contato e identificação
+  comercial conforme requisitos aplicáveis; use apenas fotos e produtos reais.
+- Escolha hospedagem que permita uso comercial. Publique os arquivos estáticos
+  após configurar o Supabase. O SQL deve ser executado no Supabase, não no site.
+- Pagamento por API deve ser uma etapa posterior, com backend e webhooks seguros.
+
+6. ARQUIVOS
+-----------
+index.html   = loja do cliente
+admin.html   = painel administrativo
+style.css    = design responsivo
+script.js    = funcionalidades da loja
+admin.js     = funcionalidades do painel
+dados.js     = acesso a dados demo ou Supabase
+config.js    = configuração pública e número comercial
+supabase.sql = configuração inicial do banco, permissões e funções
+
+Documentação oficial:
+https://supabase.com/docs/reference/javascript/initializing
+https://supabase.com/docs/guides/database/secure-data
+https://supabase.com/docs/guides/storage/security/access-control
